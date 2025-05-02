@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useContext } from "react";
 import AuthContext from "../context/AuthContext/AuthContext";
 
@@ -7,7 +8,7 @@ const Navbar = () => {
   const handleSignOut = () => {
     signOutUser()
       .then(() => console.log("User signed out"))
-      .catch((err) => console.log(err));
+      .catch((err) => console.log("failed to signed out"));
   };
 
   return (

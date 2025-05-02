@@ -1,8 +1,10 @@
 import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import AuthContext from "../../context/AuthContext/AuthContext";
 
 const SignIn = () => {
   const { singIn } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     email: "",
@@ -21,11 +23,11 @@ const SignIn = () => {
 
     const { email, password } = formData;
 
-    console.log("Email:", email);
-    console.log("Password:", password);
-
     singIn(email, password)
-      .then((result) => console.log(result.user))
+      .then((result) => {
+        console.log(result.user);
+        navigate("/");
+      })
       .catch((err) => {
         console.log(err);
       });
